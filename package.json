@@ -21,7 +21,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
-    "react-redux": "4.3.0",
+    "react-redux": "5.0.6",
     "react-router": "^2.0.1",
     "react-sparklines": "^1.6.0",
     "redux": "^3.0.4",
