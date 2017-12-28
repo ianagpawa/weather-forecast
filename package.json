@@ -1,11 +1,22 @@
 {
   "name": "weather-forecast",
   "version": "0.1.0",
+  "description": "Weather app built with Redux and React",
+  "author": "Ian Agpawa",
+  "repository": "git@github.com:ianagpawa/weather-react.git",
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-redux": "4.3.0",
+    "react-router": "^2.0.1",
+    "react-sparklines": "^1.6.0",
+    "redux": "^3.0.4",
+    "redux-promise": "^0.5.3",
+    "axios": "^0.17.1",
+    "babel-preset-stage-1": "^6.1.18",
+    "lodash": "^3.10.1"
   },
   "scripts": {
     "start": "react-scripts start",
