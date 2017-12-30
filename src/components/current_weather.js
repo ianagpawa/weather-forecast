@@ -1,5 +1,9 @@
 import React from 'react';
 
+function fahrenheit(temp){
+    return Math.round(((9/5) * (parseInt(temp, 10) - 273)) + 32);
+}
+
 export default (props) => {
     return (
         <div>
@@ -13,10 +17,10 @@ export default (props) => {
             </div>
             <div className='right col-xs-8'>
                 <div className='temp'>
-                    {props.temp} temp
+                    {fahrenheit(props.temp)}&#8457;
                 </div>
                 <div className='lower-right'>
-                    <p>{props.low} LOW</p>
+                    <p>{fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457;</p>
                     <p>{props.humidity} Humidity</p>
                     <p>{props.pressure} Pressure</p>
                 </div>
