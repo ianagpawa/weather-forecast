@@ -8,18 +8,11 @@ class WeatherList extends Component {
 
     renderCurrentWeather(cityData){
         const city_name = cityData.city.name;
-        const temps = cityData.list.map(weather => weather.main.temp);
-        const tempMin = cityData.list.map(weather => weather.main.temp_min);
-        const tempMax = cityData.list.map(weather => weather.main.temp_max);
-        const pressures = cityData.list.map(weather => weather.main.pressure);
-        const humidities = cityData.list.map(weather => weather.main.humidity);
-
-        const currentTemp = temps[0];
-        const currentPres = pressures[0];
-        const currentHum = humidities[0];
-        const currentTempMin = tempMin[0];
-        const currentTempMax = tempMax[0];
-
+        const currentTemp = cityData.list[0].main.temp;
+        const currentTempMin = cityData.list[0].main.temp_min;
+        const currentTempMax = cityData.list[0].main.temp_max;
+        const currentPres = cityData.list[0].main.pressure;
+        const currentHum = cityData.list[0].main.humidity;
 
         return (
             <Current low={currentTempMin} high={currentTempMax}
@@ -36,18 +29,9 @@ class WeatherList extends Component {
         const pressures = cityData.list.map(weather => weather.main.pressure);
         const humidities = cityData.list.map(weather => weather.main.humidity);
 
-        const currentTemp = temps[0];
-        const currentPres = pressures[0];
-        const currentHum = humidities[0];
-        const currentTempMin = tempMin[0];
-        const currentTempMax = tempMax[0];
-
         return (
             <tr key={city_name}>
                 <td>{city_name}</td>
-                <td>
-
-                </td>
                 <td><Chart data={temps} color='red' units='K'/></td>
                 <td><Chart data={pressures} color='green' units='hPa'/></td>
                 <td><Chart data={humidities} color='black' units='%'/></td>
@@ -67,7 +51,8 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.weather.map(this.renderWeather)}
+                    <div>{this.props.weather.map(this.renderCurrentWeather)}</div>
+                    <div>{this.props.weather.map(this.renderWeather)}</div>
                 </tbody>
             </table>
         );
