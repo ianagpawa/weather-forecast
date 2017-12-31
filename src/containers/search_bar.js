@@ -8,6 +8,7 @@ class SearchBar extends Component {
         super(props);
 
         this.state = { term: ''};
+        this.props.fetchWeather('New York');
 
         this.onInputChange = this.onInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
