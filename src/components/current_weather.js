@@ -6,7 +6,7 @@ function fahrenheit(temp){
 
 export default (props) => {
     return (
-        <div>
+        <div className='col-xs-4 col-xs-offset-4'>
             <div className='left col-xs-4'>
                 <div className='icon'>
                     Icon
