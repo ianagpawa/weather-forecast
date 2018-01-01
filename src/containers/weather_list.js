@@ -1,25 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from "../components/chart";
-import Current from "../components/current_weather"
 
 
 class WeatherList extends Component {
-
-    renderCurrentWeather(cityData){
-        const city_name = cityData.city.name;
-        const currentTemp = cityData.list[0].main.temp;
-        const currentTempMin = cityData.list[0].main.temp_min;
-        const currentTempMax = cityData.list[0].main.temp_max;
-        const currentPres = cityData.list[0].main.pressure;
-        const currentHum = cityData.list[0].main.humidity;
-
-        return (
-            <Current low={currentTempMin} high={currentTempMax}
-                temp={currentTemp} humidity={currentHum}
-                pressure={currentPres} />
-        );
-    }
 
     renderWeather(cityData) {
         const city_name = cityData.city.name;
@@ -51,7 +35,6 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <div>{this.props.weather.map(this.renderCurrentWeather)}</div>
                     <div>{this.props.weather.map(this.renderWeather)}</div>
                 </tbody>
             </table>
