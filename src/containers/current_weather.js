@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Current from "../components/current_weather";
+import WeatherIcons from "../icons.json";
 
 
 class CurrentWeather extends Component {
@@ -18,8 +19,10 @@ class CurrentWeather extends Component {
         const weather = listing.weather;
         const condition = weather.main;
         const description = weather.description;
-        const icon = weather.icon;
+        const iconId = weather.id;
 
+        const prefix = 'wi wi-';
+        const icon = WeatherIcons[iconCode].icon;
 
         return (
             <Current low={currentTempMin} high={currentTempMax}
