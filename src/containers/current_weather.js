@@ -16,10 +16,10 @@ class CurrentWeather extends Component {
         const currentPres = main.pressure;
         const currentHum = main.humidity;
 
-        const weather = listing.weather;
+        const weather = listing.weather[0];
         const condition = weather.main;
         const description = weather.description;
-        const code = weather[0].id;
+        const code = weather.id;
         let icon = WeatherIcons[code].icon;
         if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
             icon = 'day-'+ icon;
@@ -29,7 +29,8 @@ class CurrentWeather extends Component {
         return (
             <Current name={city_name} low={currentTempMin}
                 high={currentTempMax} temp={currentTemp} humidity={currentHum}
-                pressure={currentPres} icon={icon}  />
+                pressure={currentPres} icon={icon} condition={condition}
+                description={description}/>
         );
     }
 

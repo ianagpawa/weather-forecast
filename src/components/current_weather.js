@@ -7,25 +7,18 @@ function fahrenheit(temp){
 
 export default (props) => {
     return (
-        <div className='col-xs-4 col-xs-offset-4'>
-            <div className='col-xs-12'><h1>{props.name}</h1></div>
+        <div className='col-xs-6 col-xs-offset-3 text-center'>
+            <div className='col-xs-8 col-xs-offset-2'><h1>{props.name}</h1></div>
             <div className='left col-xs-4'>
-                <div className='icon'>
-                    <i className={props.icon}></i>
-                </div>
-                <div className='condition'>
-                    Condition
-                </div>
+                <i className={props.icon}></i>
+                <p>{props.condition}</p>
             </div>
-            <div className='right col-xs-8'>
-                <div className='temp'>
-                    {fahrenheit(props.temp)}&#8457;
-                </div>
-                <div className='lower-right'>
+            <div className='right col-xs-7 col-xs-offset-1'>
+                    <p>{fahrenheit(props.temp)}&#8457;</p>
+                    <p>{props.description}</p>
                     <p>{fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457;</p>
                     <p>{props.humidity} Humidity</p>
                     <p>{props.pressure} Pressure</p>
-                </div>
             </div>
         </div>
     );
