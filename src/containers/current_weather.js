@@ -7,11 +7,19 @@ class CurrentWeather extends Component {
 
     renderCurrentWeather(cityData){
         const city_name = cityData.city.name;
-        const currentTemp = cityData.list[0].main.temp;
-        const currentTempMin = cityData.list[0].main.temp_min;
-        const currentTempMax = cityData.list[0].main.temp_max;
-        const currentPres = cityData.list[0].main.pressure;
-        const currentHum = cityData.list[0].main.humidity;
+        const listing = cityData.list[0]
+        const main = listing.main
+        const currentTemp = main.temp;
+        const currentTempMin = main.temp_min;
+        const currentTempMax = main.temp_max;
+        const currentPres = main.pressure;
+        const currentHum = main.humidity;
+
+        const weather = listing.weather;
+        const condition = weather.main;
+        const description = weather.description;
+        const icon = weather.icon;
+
 
         return (
             <Current low={currentTempMin} high={currentTempMax}
