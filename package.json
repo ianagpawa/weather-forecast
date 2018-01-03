@@ -18,17 +18,18 @@
     "react-addons-test-utils": "^0.14.7"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "babel-preset-stage-1": "^6.1.18",
+    "lodash": "^3.10.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
     "react-redux": "5.0.6",
     "react-router": "^2.0.1",
+    "react-scripts": "1.0.17",
     "react-sparklines": "^1.6.0",
     "redux": "^3.0.4",
     "redux-promise": "^0.5.3",
-    "axios": "^0.17.1",
-    "babel-preset-stage-1": "^6.1.18",
-    "lodash": "^3.10.1"
+    "weather-icons": "^1.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

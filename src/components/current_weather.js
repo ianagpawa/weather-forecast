@@ -1,4 +1,5 @@
 import React from 'react';
+import 'weather-icons/css/weather-icons.css';
 
 function fahrenheit(temp){
     return Math.round(((9/5) * (parseInt(temp, 10) - 273)) + 32);
@@ -10,7 +11,7 @@ export default (props) => {
             <div className='col-xs-12'><h1>{props.name}</h1></div>
             <div className='left col-xs-4'>
                 <div className='icon'>
-                    Icon
+                    <i className="wi wi-day-lightning"></i>
                 </div>
                 <div className='condition'>
                     Condition
