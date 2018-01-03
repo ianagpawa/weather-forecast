@@ -8,8 +8,6 @@ class WeatherList extends Component {
     renderWeather(cityData) {
         const city_name = cityData.city.name;
         const temps = cityData.list.map(weather => weather.main.temp);
-        const tempMin = cityData.list.map(weather => weather.main.temp_min);
-        const tempMax = cityData.list.map(weather => weather.main.temp_max);
         const pressures = cityData.list.map(weather => weather.main.pressure);
         const humidities = cityData.list.map(weather => weather.main.humidity);
 

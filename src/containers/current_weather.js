@@ -16,7 +16,7 @@ class CurrentWeather extends Component {
         return (
             <Current low={currentTempMin} high={currentTempMax}
                 temp={currentTemp} humidity={currentHum}
-                pressure={currentPres} />
+                pressure={currentPres} name={city_name} />
         );
     }
 
