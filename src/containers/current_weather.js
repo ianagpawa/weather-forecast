@@ -19,15 +19,17 @@ class CurrentWeather extends Component {
         const weather = listing.weather;
         const condition = weather.main;
         const description = weather.description;
-        const iconId = weather.id;
-
-        const prefix = 'wi wi-';
-        const icon = WeatherIcons[iconCode].icon;
+        const code = weather[0].id;
+        let icon = WeatherIcons[code].icon;
+        if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
+            icon = 'day-'+ icon;
+        }
+        icon = "wi wi-" + icon;
 
         return (
-            <Current low={currentTempMin} high={currentTempMax}
-                temp={currentTemp} humidity={currentHum}
-                pressure={currentPres} name={city_name} />
+            <Current name={city_name} low={currentTempMin}
+                high={currentTempMax} temp={currentTemp} humidity={currentHum}
+                pressure={currentPres} icon={icon}  />
         );
     }
 

@@ -11,7 +11,7 @@ export default (props) => {
             <div className='col-xs-12'><h1>{props.name}</h1></div>
             <div className='left col-xs-4'>
                 <div className='icon'>
-                    <i className="wi wi-day-lightning"></i>
+                    <i className={props.icon}></i>
                 </div>
                 <div className='condition'>
                     Condition
