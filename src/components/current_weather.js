@@ -17,8 +17,8 @@ export default (props) => {
                     <p>{fahrenheit(props.temp)}&#8457;</p>
                     <p>{props.description}</p>
                     <p>{fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457;</p>
-                    <p>{props.humidity} Humidity</p>
-                    <p>{props.pressure} Pressure</p>
+                    <p>Humidity: {props.humidity}&#37;</p>
+                    <p>Pressure: {props.pressure} hPa</p>
             </div>
         </div>
     );
