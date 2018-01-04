@@ -24,7 +24,7 @@ class CurrentWeather extends Component {
         if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
             icon = 'day-'+ icon;
         }
-        icon = "wi wi-" + icon;
+        icon = "weather-icon wi wi-" + icon;
 
         return (
             <Current name={city_name} low={currentTempMin}
