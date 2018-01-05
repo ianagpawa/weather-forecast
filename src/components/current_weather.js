@@ -10,6 +10,7 @@ export default (props) => {
         <div className='col-xs-6 col-xs-offset-3'>
             <div className='col-xs-8 col-xs-offset-2'><h1>{props.name}</h1></div>
             <div className='left col-xs-4 text-center'>
+                <h3>{props.day}</h3>
                 <i className={props.icon}></i>
                 <p>{props.condition}</p>
                 <p>{fahrenheit(props.temp)}&#8457;</p>

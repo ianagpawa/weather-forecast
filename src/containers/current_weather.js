@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Current from "../components/current_weather";
 import WeatherIcons from "../icons.json";
+import timestamp from 'unix-timestamp';
 
 
 class CurrentWeather extends Component {
 
     renderCurrentWeather(cityData){
         const city_name = cityData.city.name;
-        const listing = cityData.list[0]
-        const main = listing.main
+        const listing = cityData.list[0];
+        const dt = listing.dt;
+        const time = timestamp.toDate(dt).toString().split(" ")[0];
+        const main = listing.main;
         const currentTemp = main.temp;
         const currentTempMin = main.temp_min;
         const currentTempMax = main.temp_max;
@@ -27,10 +30,10 @@ class CurrentWeather extends Component {
         icon = "weather-icon wi wi-" + icon;
 
         return (
-            <Current name={city_name} low={currentTempMin}
+            <Current key={dt} name={city_name} low={currentTempMin}
                 high={currentTempMax} temp={currentTemp} humidity={currentHum}
                 pressure={currentPres} icon={icon} condition={condition}
-                description={description}/>
+                description={description} day={time}/>
         );
     }
 
