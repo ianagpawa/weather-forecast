@@ -1,9 +1,6 @@
 import React from 'react';
 import 'weather-icons/css/weather-icons.css';
-
-function fahrenheit(temp){
-    return Math.round(((9/5) * (parseInt(temp, 10) - 273)) + 32);
-}
+import { fahrenheit } from '../components/fahrenheit';
 
 export default (props) => {
     return (
