@@ -37,6 +37,13 @@ class CurrentWeather extends Component {
         );
     }
 
+    renderWeatherWeek(cityData){
+
+        return (
+            null
+        );
+    }
+
 
     render () {
         return (
@@ -44,6 +51,8 @@ class CurrentWeather extends Component {
         );
     }
 }
+
+
 
 
 function mapStateToProps({ weather }){
