@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Current from "../components/current_weather";
+import DailyWeather from "../components/weather";
 import WeatherIcons from "../icons.json";
 import timestamp from 'unix-timestamp';
+
 
 
 class CurrentWeather extends Component {
 
     renderCurrentWeather(cityData){
-        console.log(cityData.list);
         const city_name = cityData.city.name;
         const listing = cityData.list[0];
         const dt = listing.dt;
@@ -39,19 +40,35 @@ class CurrentWeather extends Component {
     }
 
     renderWeatherWeek(cityData){
-        const listing = cityData.list[0];
-        const dt = listing.dt;
+        const listing = cityData.list;
 
-        return (
-            <li>
-            </li>
-        );
+        return listing.map((day) => {
+            
+            const code = day.weather[0].id;
+            let icon = WeatherIcons[code].icon;
+            if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
+                icon = 'day-'+ icon;
+            }
+            icon = "weather-icon wi wi-" + icon;
+
+            return (
+                <DailyWeather
+                    key={day.dt}
+                    temp={day.main.temp}
+                    condition={day.weather[0].main}
+                    icon={icon}
+                />
+            );
+        });
     }
 
 
     render () {
         return (
-            <div>{this.props.weather.map(this.renderCurrentWeather)}</div>
+            <div>
+                <div>{this.props.weather.map(this.renderCurrentWeather)}</div>
+                <ul className="list-group col-sm-4">{this.props.weather.map(this.renderWeatherWeek)}</ul>
+            </div>
         );
     }
 }
