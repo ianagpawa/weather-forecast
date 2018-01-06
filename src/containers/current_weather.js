@@ -8,6 +8,7 @@ import timestamp from 'unix-timestamp';
 class CurrentWeather extends Component {
 
     renderCurrentWeather(cityData){
+        console.log(cityData.list);
         const city_name = cityData.city.name;
         const listing = cityData.list[0];
         const dt = listing.dt;
@@ -38,9 +39,12 @@ class CurrentWeather extends Component {
     }
 
     renderWeatherWeek(cityData){
+        const listing = cityData.list[0];
+        const dt = listing.dt;
 
         return (
-            null
+            <li>
+            </li>
         );
     }
 
