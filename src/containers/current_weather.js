@@ -41,9 +41,10 @@ class CurrentWeather extends Component {
 
     renderWeatherWeek(cityData){
         const listing = cityData.list;
+        let first = true;
 
         return listing.map((day) => {
-            
+
             const code = day.weather[0].id;
             let icon = WeatherIcons[code].icon;
             if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
