@@ -45,12 +45,12 @@ class CurrentWeather extends Component {
         let first = true;
 
         return listing.map((day) => {
-            const dt = day.dt;
+
             const time = timestamp.toDate(day.dt).toString().split(" ")
             const hour = parseInt(time[4].slice(0,2));
 
-            if (filterDay(dt)){
-
+            if ((11 <= hour) && (hour <= 13)){
+                const weekday = time[0];
                 const code = day.weather[0].id;
                 let icon = WeatherIcons[code].icon;
                 if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
@@ -61,6 +61,7 @@ class CurrentWeather extends Component {
                 return (
                     <DailyWeather
                         key={day.dt}
+                        weekDay={weekday}
                         temp={day.main.temp}
                         condition={day.weather[0].main}
                         icon={icon}
