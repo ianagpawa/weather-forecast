@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import WeatherIcons from "../icons.json";
-import timestamp from 'unix-timestamp';
-
+import { filterDay } from "../components/filter_day";
 
 
 class CurrentWeather extends Component {
@@ -14,6 +14,7 @@ class CurrentWeather extends Component {
         const listing = cityData.list[0];
         const dt = listing.dt;
         const time = timestamp.toDate(dt).toString().split(" ")[0];
+
         const main = listing.main;
         const currentTemp = main.temp;
         const currentTempMin = main.temp_min;
@@ -44,22 +45,28 @@ class CurrentWeather extends Component {
         let first = true;
 
         return listing.map((day) => {
+            const dt = day.dt;
+            const time = timestamp.toDate(day.dt).toString().split(" ")
+            const hour = parseInt(time[4].slice(0,2));
 
-            const code = day.weather[0].id;
-            let icon = WeatherIcons[code].icon;
-            if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
-                icon = 'day-'+ icon;
+            if (filterDay(dt)){
+
+                const code = day.weather[0].id;
+                let icon = WeatherIcons[code].icon;
+                if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
+                    icon = 'day-'+ icon;
+                }
+                icon = "weather-icon wi wi-" + icon;
+
+                return (
+                    <DailyWeather
+                        key={day.dt}
+                        temp={day.main.temp}
+                        condition={day.weather[0].main}
+                        icon={icon}
+                    />
+                );
             }
-            icon = "weather-icon wi wi-" + icon;
-
-            return (
-                <DailyWeather
-                    key={day.dt}
-                    temp={day.main.temp}
-                    condition={day.weather[0].main}
-                    icon={icon}
-                />
-            );
         });
     }
 
