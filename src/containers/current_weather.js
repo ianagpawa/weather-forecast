@@ -43,7 +43,9 @@ class CurrentWeather extends Component {
 
         // TODO: Change from if statement to filter function, then map
         // Error: Expected to return a value at the end of arrow function
-        return listing.filter(day => 11 <= parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10) && parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10) <= 13).map((day) => {
+        return listing.filter(day => (11 <= parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10)
+                                        && parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10) <= 13)
+                                    ).map((day) => {
             const time = timestamp.toDate(day.dt).toString().split(" ");
             const weekday = time[0];
             const code = day.weather[0].id;
