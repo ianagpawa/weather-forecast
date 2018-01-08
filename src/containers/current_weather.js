@@ -4,6 +4,7 @@ import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import WeatherIcons from "../icons.json";
+import { filterFunction } from "../components/fahrenheit";
 
 class CurrentWeather extends Component {
 
@@ -43,8 +44,7 @@ class CurrentWeather extends Component {
 
         // TODO: Change from if statement to filter function, then map
         // Error: Expected to return a value at the end of arrow function
-        return listing.filter(day => (11 <= parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10)
-                                        && parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10) <= 13)
+        return listing.filter(day => (filterFunction(day))
                                     ).map((day) => {
             const time = timestamp.toDate(day.dt).toString().split(" ");
             const weekday = time[0];
