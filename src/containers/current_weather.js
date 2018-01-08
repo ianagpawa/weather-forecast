@@ -43,30 +43,26 @@ class CurrentWeather extends Component {
 
         // TODO: Change from if statement to filter function, then map
         // Error: Expected to return a value at the end of arrow function
-        return listing.map((day) => {
-
-            const time = timestamp.toDate(day.dt).toString().split(" ")
-            const hour = parseInt(time[4].slice(0,2), 10);
-
-            if ((11 <= hour) && (hour <= 13)){
-                const weekday = time[0];
-                const code = day.weather[0].id;
-                let icon = WeatherIcons[code].icon;
-                if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
-                    icon = 'day-'+ icon;
-                }
-                icon = "weather-icon wi wi-" + icon;
-
-                return (
-                    <DailyWeather
-                        key={day.dt}
-                        weekday={weekday}
-                        temp={day.main.temp}
-                        condition={day.weather[0].main}
-                        icon={icon}
-                    />
-                );
+        return listing.filter(day => 11 <= parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10) && parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10) <= 13).map((day) => {
+            const time = timestamp.toDate(day.dt).toString().split(" ");
+            const weekday = time[0];
+            const code = day.weather[0].id;
+            let icon = WeatherIcons[code].icon;
+            if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
+                icon = 'day-'+ icon;
             }
+            icon = "weather-icon wi wi-" + icon;
+
+            return (
+                <DailyWeather
+                    key={day.dt}
+                    weekday={weekday}
+                    temp={day.main.temp}
+                    condition={day.weather[0].main}
+                    icon={icon}
+                />
+            );
+
         });
     }
 
