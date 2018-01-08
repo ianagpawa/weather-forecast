@@ -1,6 +1,6 @@
 import React from 'react';
 import 'weather-icons/css/weather-icons.css';
-import { fahrenheit } from '../components/fahrenheit';
+import { fahrenheit } from '../components/functions';
 
 export default (props) => {
     return (

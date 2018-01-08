@@ -4,7 +4,7 @@ import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import WeatherIcons from "../icons.json";
-import { filterFunction } from "../components/fahrenheit";
+import { filterFunction } from "../components/functions";
 
 class CurrentWeather extends Component {
 
