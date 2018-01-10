@@ -12,7 +12,9 @@ class CurrentWeather extends Component {
         const city_name = cityData.city.name;
         const listing = cityData.list[0];
         const dt = listing.dt;
-        const time = timestamp.toDate(dt).toString().split(" ")[0];
+        const time = timestamp.toDate(dt).toString().split(" ");
+        const day = time[0];
+        const hour = parseInt(time[4].slice(0,2), 10);
 
         const main = listing.main;
         const currentTemp = main.temp;
@@ -26,6 +28,11 @@ class CurrentWeather extends Component {
         const description = weather.description;
         const code = weather.id;
         let icon = WeatherIcons[code].icon;
+        // if (6 < hour) && (hour < 18){
+        //     icon = "weather-icon wi wi-day-" + icon;
+        // } else {
+        //     icon = "weather-icon wi-night-"
+        // }
         if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
             icon = 'day-'+ icon;
         }
@@ -35,7 +42,7 @@ class CurrentWeather extends Component {
             <Current key={dt} name={city_name} low={currentTempMin}
                 high={currentTempMax} temp={currentTemp} humidity={currentHum}
                 pressure={currentPres} icon={icon} condition={condition}
-                description={description} day={time}/>
+                description={description} day={day}/>
         );
     }
 
