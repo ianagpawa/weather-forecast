@@ -27,7 +27,6 @@ class CurrentWeather extends Component {
         const description = weather.description;
         const code = weather.id;
         const icon = "weather-icon wi wi-" + retrieveIcon(hour, code);
-        console.log("current hour: " + hour + ", code: " + code + ", tag: " + icon);
 
         return (
             <Current key={dt} name={city_name} low={currentTempMin}
@@ -48,8 +47,6 @@ class CurrentWeather extends Component {
             const weekday = time[0];
             const code = day.weather[0].id;
             const icon = "weather-icon wi wi-" + retrieveIcon(12, code);
-            console.log("weekday: " + weekday + ", code: " + code + ", tag: " + icon);
-
 
             return (
                 <DailyWeather
