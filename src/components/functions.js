@@ -11,20 +11,24 @@ export function filterFunction(day){
 }
 
 
-export function retrieveIcon(time, code){
-    function isDay(time){
-        const hour = parseInt(time, 10);
+export function retrieveIcon(hour, code){
+    function isDay(hour){
         return ((6 < hour) && (hour < 18));
     }
-
+    console.log(code);
+    if (code === "800") {
+        console.log('here');
+    }
     if ((code === "741") || (code === "800") || (code === "804")){
-        return isDay(time) ? WeatherIcons["day"] : WeatherIcons["night"];
+        console.log(isDay(hour));
+        console.log(WeatherIcons[code]["day"])
+        return isDay(hour) ? WeatherIcons[code]["day"] : WeatherIcons[code]["night"];
     } else {
         const intCode = parseInt(code, 10);
         if ((( 710 < intCode ) && ( intCode < 800 )) || ((900 < intCode) && (intCode < 1000))){
             return WeatherIcons[code];
         } else {
-            const prefix = isDay(time) ? "day-" : "night-alt-"
+            const prefix = isDay(hour) ? "day-" : "night-alt-"
             return prefix + WeatherIcons[code]
         }
     }

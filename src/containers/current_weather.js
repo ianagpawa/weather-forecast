@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
-import WeatherIcons from "../icons.json";
-import { filterFunction } from "../components/functions";
+import { filterFunction, retrieveIcon } from "../components/functions";
 
 class CurrentWeather extends Component {
 
@@ -27,16 +26,8 @@ class CurrentWeather extends Component {
         const condition = weather.main;
         const description = weather.description;
         const code = weather.id;
-        let icon = WeatherIcons[code].icon;
-        // if (6 < hour) && (hour < 18){
-        //     icon = "weather-icon wi wi-day-" + icon;
-        // } else {
-        //     icon = "weather-icon wi-night-"
-        // }
-        if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
-            icon = 'day-'+ icon;
-        }
-        icon = "weather-icon wi wi-" + icon;
+        const icon = "weather-icon wi wi-" + retrieveIcon(hour, code);
+        console.log("current hour: " + hour + ", code: " + code + ", tag: " + icon);
 
         return (
             <Current key={dt} name={city_name} low={currentTempMin}
@@ -56,11 +47,9 @@ class CurrentWeather extends Component {
             const time = timestamp.toDate(day.dt).toString().split(" ");
             const weekday = time[0];
             const code = day.weather[0].id;
-            let icon = WeatherIcons[code].icon;
-            if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)){
-                icon = 'day-'+ icon;
-            }
-            icon = "weather-icon wi wi-" + icon;
+            const icon = "weather-icon wi wi-" + retrieveIcon(12, code);
+            console.log("weekday: " + weekday + ", code: " + code + ", tag: " + icon);
+
 
             return (
                 <DailyWeather
