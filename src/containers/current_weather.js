@@ -45,10 +45,11 @@ class CurrentWeather extends Component {
             const weekday = time[0];
             const code = day.weather[0].id;
             const icon = "weather-icon wi wi-" + retrieveIcon(12, code);
-
+            const size = "daily-weather col-xs-2";
             return (
                 <DailyWeather
                     key={day.dt}
+                    size = {size}
                     weekday={weekday}
                     temp={day.main.temp}
                     condition={day.weather[0].main}

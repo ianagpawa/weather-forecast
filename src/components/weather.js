@@ -4,7 +4,7 @@ import { fahrenheit } from './functions';
 
 export default (props) => {
     return (
-            <div className="daily-weather col-sm-2">
+            <div className={props.size}>
                 <h3>{props.weekday}</h3>
                 <h4>{fahrenheit(props.temp)}&#8457;</h4>
                 <i className={props.icon}></i>
