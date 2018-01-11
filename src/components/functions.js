@@ -18,8 +18,6 @@ export function retrieveIcon(hour, code){
     }
 
     if ((code === 741) || (code === 800) || (code === 804)){
-        console.log(code);
-        console.log(WeatherIcons[code])
         return isDay(hour) ? WeatherIcons[code]["day"] : WeatherIcons[code]["night"];
     } else {
         if ((( 710 < code ) && ( code < 800 )) || ((900 < code) && (code < 1000))){
