@@ -39,8 +39,6 @@ class CurrentWeather extends Component {
     renderWeatherWeek(cityData){
         const listing = cityData.list;
 
-        // TODO: Change from if statement to filter function, then map
-        // Error: Expected to return a value at the end of arrow function
         return listing.filter(day => (filterFunction(day))
                                     ).map((day) => {
             const time = timestamp.toDate(day.dt).toString().split(" ");
