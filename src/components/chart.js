@@ -3,6 +3,6 @@ import { Line } from 'react-chartjs';
 
 export default (props) => {
     return (
-        <Line data={props.chartData} options={props.chartOptions} />
+        <Line data={props.data} options={props.options} />
     )
 }

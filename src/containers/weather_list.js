@@ -25,10 +25,63 @@ class WeatherList extends Component {
     render () {
 
         const cData = [12, 19, 3, 5, 2, 3];
+        const labels = ['a', 'b', 'c', 'd', 'e', 'f'];
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: "first",
+                    data: cData,
+                    fill: false,
+                    borderDash: [5,5]
+                }
+            ]
+        }
+
+        const options = {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Chart.js Line Chart'
+            },
+            tooltips: {
+                mode: 'label'
+            },
+            hover: {
+                mode: 'dataset'
+            },
+            scales: {
+                xAxes: [
+                    {
+                        display: true,
+                        scaleLabel: {
+                            show: true,
+                            labelString: 'Month'
+                        }
+                    }
+                ],
+                yAxes: [
+                    {
+                        display: true,
+                        scaleLabel: {
+                            show: true,
+                            labelString: 'Value'
+                        },
+                        ticks: {
+                            suggestedMin: -10,
+                            suggestedMax: 250
+                        }
+                    }
+                ]
+            }
+        }
+
+
+
         return (
             <div>
             <h3>This</h3>
-            <Line chartData={cData} />
+            <Line data={data} options={options} />
             <table className='table table-hover'>
                 <thead>
                     <tr>
