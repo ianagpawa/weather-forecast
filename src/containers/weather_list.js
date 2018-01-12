@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from "../components/sparklines";
+import Line from '../components/chart';
 
 
 class WeatherList extends Component {
@@ -22,7 +23,12 @@ class WeatherList extends Component {
     }
 
     render () {
+
+        const cData = [12, 19, 3, 5, 2, 3];
         return (
+            <div>
+            <h3>This</h3>
+            <Line chartData={cData} />
             <table className='table table-hover'>
                 <thead>
                     <tr>
@@ -36,6 +42,7 @@ class WeatherList extends Component {
                     {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>
+            </div>
         );
     }
 }
