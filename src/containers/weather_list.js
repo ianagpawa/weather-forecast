@@ -69,7 +69,7 @@ class WeatherList extends Component {
                         },
                         ticks: {
                             suggestedMin: -10,
-                            suggestedMax: 250
+                            suggestedMax: 50
                         }
                     }
                 ]
