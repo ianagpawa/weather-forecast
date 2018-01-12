@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
-import Chart from "../components/chart";
+import Chart from "../components/sparklines";
 import { filterFunction, retrieveIcon } from "../components/functions";
 
 class CurrentWeather extends Component {
