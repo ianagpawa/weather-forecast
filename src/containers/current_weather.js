@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
+import Chart from "../components/chart";
 import { filterFunction, retrieveIcon } from "../components/functions";
 
 class CurrentWeather extends Component {
@@ -58,6 +59,14 @@ class CurrentWeather extends Component {
             );
 
         });
+    }
+
+    renderCharts(cityData){
+        const temps = cityData.list.map(weather => weather.main.temp);
+        const pressures = cityData.list.map(weather => weather.main.pressure);
+        const humidities = cityData.list.map(weather => weather.main.humidity);
+
+
     }
 
 
