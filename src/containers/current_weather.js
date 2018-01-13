@@ -63,6 +63,9 @@ class CurrentWeather extends Component {
 
     renderCharts(cityData){
         const temps = cityData.list.map(weather => fahrenheit(weather.main.temp));
+        const minimum = Math.min(temps);
+        const maximum = Math.max(temps);
+        
         const labels = cityData.list.map(weather => getFormattedTime(weather.dt));
         const data = {
             labels: labels,
