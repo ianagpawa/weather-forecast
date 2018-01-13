@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import Line from '../components/chart';
 import Chart from "../components/sparklines";
-import { filterFunction, retrieveIcon, fahrenheit } from "../components/functions";
+import { filterFunction, retrieveIcon, fahrenheit, getTime } from "../components/functions";
 
 class CurrentWeather extends Component {
 
@@ -13,7 +12,7 @@ class CurrentWeather extends Component {
         const city_name = cityData.city.name;
         const listing = cityData.list[0];
         const dt = listing.dt;
-        const time = timestamp.toDate(dt).toString().split(" ");
+        const time = getTime(dt);
         const day = time[0];
         const hour = parseInt(time[4].slice(0,2), 10);
 
@@ -43,7 +42,7 @@ class CurrentWeather extends Component {
 
         return listing.filter(day => (filterFunction(day))
                                     ).map((day) => {
-            const time = timestamp.toDate(day.dt).toString().split(" ");
+            const time = getTime(day.dt);
             const weekday = time[0];
             const code = day.weather[0].id;
             const icon = "weather-icon wi wi-" + retrieveIcon(12, code);
