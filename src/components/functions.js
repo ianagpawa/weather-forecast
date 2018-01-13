@@ -10,12 +10,10 @@ export function getTime(dt){
 }
 
 export function getFormattedTime(dt){
-
     function getHour(hourString){
         const hour = parseInt(hourString.split(":")[0]);
         return hour < 12 ? (hour === 0 ? "12AM" : (hour + "AM")) : ( hour > 12 ? (hour-12 + "PM") : "12PM" );
     }
-
     const time = getTime(dt);
     const day = time[0];
     const date = time[1] + " " + time[2];
@@ -33,7 +31,6 @@ export function retrieveIcon(hour, code){
     function isDay(hour){
         return ((6 < hour) && (hour < 18));
     }
-
     if ((code === 741) || (code === 800) || (code === 804)){
         return isDay(hour) ? WeatherIcons[code]["day"] : WeatherIcons[code]["night"];
     } else {
@@ -42,6 +39,17 @@ export function retrieveIcon(hour, code){
         } else {
             const prefix = isDay(hour) ? "day-" : "night-alt-"
             return prefix + WeatherIcons[code]
+        }
+    }
+}
+
+export function getNext(n, iffy){
+    const addor = return iffy ? 1 : -1
+    while (true){
+
+        n += addor;
+        if (n % 5 == 0){
+            return n
         }
     }
 }
