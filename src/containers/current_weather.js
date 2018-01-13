@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import timestamp from 'unix-timestamp';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
+import Line from '../components/chart';
 import Chart from "../components/sparklines";
 import { filterFunction, retrieveIcon } from "../components/functions";
 
@@ -63,7 +64,7 @@ class CurrentWeather extends Component {
 
     renderCharts(cityData){
         const temps = cityData.list.map(weather => weather.main.temp);
-        const labels = cityData.list.map(weather => weather.main.temp);
+        const labels = cityData.list.map(weather => weather.dt);
         const data = {
             labels: labels,
             datasets: [
@@ -99,20 +100,18 @@ class CurrentWeather extends Component {
                 ],
                 yAxes: [
                     {
-                        display: true,
                         scaleLabel: {
-                            show: true,
+                            display: true,
                             labelString: 'Temp. (°F)'
-                        },
-                        ticks: {
-                            suggestedMin: 0,
-                            suggestedMax: 100
                         }
                     }
                 ]
             }
         }
 
+        return (
+            <Line data={data} options={options} />
+        )
 
     }
 
@@ -122,6 +121,7 @@ class CurrentWeather extends Component {
             <div>
                 <div className='col-md-12'>{this.props.weather.map(this.renderCurrentWeather)}</div>
                 <div className="col-xs-10 col-xs-offset-2">{this.props.weather.map(this.renderWeatherWeek)}</div>
+                <div className='col-md-12'>{this.props.weather.map(this.renderCharts)}</div>
             </div>
         );
     }

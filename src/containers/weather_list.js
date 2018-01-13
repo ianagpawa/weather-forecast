@@ -24,8 +24,8 @@ class WeatherList extends Component {
 
     render () {
 
-        const cData = [12, 19, 3, 5, 2, 3];
-        const labels = ['a', 'b', 'c', 'd', 'e', 'f'];
+        const cData = [12, 19, 3, 5, 2, 3, 35, 22, 39];
+        const labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
         const data = {
             labels: labels,
             datasets: [
@@ -69,10 +69,6 @@ class WeatherList extends Component {
                             fontSize: 50,
                             fontColor: "#000000"
                         },
-                        ticks: {
-                            suggestedMin: -10,
-                            suggestedMax: 50
-                        }
                     }
                 ]
             }
