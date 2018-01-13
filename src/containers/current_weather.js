@@ -5,7 +5,7 @@ import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import Line from '../components/chart';
 import Chart from "../components/sparklines";
-import { filterFunction, retrieveIcon } from "../components/functions";
+import { filterFunction, retrieveIcon, fahrenheit } from "../components/functions";
 
 class CurrentWeather extends Component {
 
@@ -63,7 +63,7 @@ class CurrentWeather extends Component {
     }
 
     renderCharts(cityData){
-        const temps = cityData.list.map(weather => weather.main.temp);
+        const temps = cityData.list.map(weather => fahrenheit(weather.main.temp));
         const labels = cityData.list.map(weather => weather.dt);
         const data = {
             labels: labels,
