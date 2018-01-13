@@ -53,19 +53,21 @@ class WeatherList extends Component {
             scales: {
                 xAxes: [
                     {
-                        display: true,
                         scaleLabel: {
-                            show: true,
-                            labelString: 'Month'
+                            display: true,
+                            labelString: '°F',
+                            fontSize: 20,
+                            fontColor: '#b6b6b6'
                         }
                     }
                 ],
                 yAxes: [
                     {
-                        display: true,
                         scaleLabel: {
-                            show: true,
-                            labelString: 'Value'
+                            display: true,
+                            labelString: 'Value',
+                            fontSize: 50,
+                            fontColor: "#000000"
                         },
                         ticks: {
                             suggestedMin: -10,
@@ -81,7 +83,7 @@ class WeatherList extends Component {
         return (
             <div>
             <h3>This</h3>
-            <Line data={data} options={options} />
+            <Line data={data} options={options} height={600} width={800}/>
             <table className='table table-hover'>
                 <thead>
                     <tr>

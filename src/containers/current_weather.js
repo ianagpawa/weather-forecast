@@ -63,8 +63,55 @@ class CurrentWeather extends Component {
 
     renderCharts(cityData){
         const temps = cityData.list.map(weather => weather.main.temp);
-        const pressures = cityData.list.map(weather => weather.main.pressure);
-        const humidities = cityData.list.map(weather => weather.main.humidity);
+        const labels = cityData.list.map(weather => weather.main.temp);
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Temperature",
+                    data: temps,
+                    fill: true,
+                    borderDash: [5,5]
+                }
+            ]
+        }
+
+        const options = {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Temperatures for the next 5 days'
+            },
+            tooltips: {
+                mode: 'label'
+            },
+            hover: {
+                mode: 'dataset'
+            },
+            scales: {
+                xAxes: [
+                    {
+                        scaleLabel: {
+                            display: true,
+                            labelString: '3 Hour Intervals for the next 5 days'
+                        }
+                    }
+                ],
+                yAxes: [
+                    {
+                        display: true,
+                        scaleLabel: {
+                            show: true,
+                            labelString: 'Temp. (°F)'
+                        },
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                ]
+            }
+        }
 
 
     }
