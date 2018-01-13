@@ -5,10 +5,10 @@ import DailyWeather from './weather';
 
 
 export default (props) => {
-    const size = "left col-xs-4 text-center";
+    const size = "left col-md-6";
     return (
-        <div className='col-xs-6 col-xs-offset-3'>
-            <div className='col-xs-8 col-xs-offset-2'><h1>{props.name}</h1></div>
+        <div className='col-md-6 col-md-offset-3 text-center'>
+            <div className='col-md-12'><h1>{props.name}</h1></div>
             <DailyWeather
                 size={size}
                 weekday={props.day}
@@ -16,7 +16,7 @@ export default (props) => {
                 condition={props.condition}
                 icon={props.icon}
             />
-            <div className='right col-xs-7 col-xs-offset-1'>
+            <div className='right col-md-6'>
                     <p>{props.description}</p>
                     <p>{fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457;</p>
                     <p>Humidity: {props.humidity}&#37;</p>
