@@ -4,7 +4,7 @@ import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import Line from '../components/chart';
 import Chart from "../components/sparklines";
-import { filterFunction, retrieveIcon, fahrenheit, getTime } from "../components/functions";
+import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime } from "../components/functions";
 
 class CurrentWeather extends Component {
 
@@ -13,7 +13,6 @@ class CurrentWeather extends Component {
         const listing = cityData.list[0];
         const dt = listing.dt;
         const time = getTime(dt);
-        console.log(time);
         const day = time[0];
         const hour = parseInt(time[4].slice(0,2), 10);
 
@@ -64,7 +63,7 @@ class CurrentWeather extends Component {
 
     renderCharts(cityData){
         const temps = cityData.list.map(weather => fahrenheit(weather.main.temp));
-        const labels = cityData.list.map(weather => weather.dt);
+        const labels = cityData.list.map(weather => getFormattedTime(weather.dt));
         const data = {
             labels: labels,
             datasets: [
