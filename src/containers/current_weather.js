@@ -13,6 +13,7 @@ class CurrentWeather extends Component {
         const listing = cityData.list[0];
         const dt = listing.dt;
         const time = getTime(dt);
+        console.log(time);
         const day = time[0];
         const hour = parseInt(time[4].slice(0,2), 10);
 
@@ -109,7 +110,7 @@ class CurrentWeather extends Component {
         }
 
         return (
-            <Line data={data} options={options} />
+            <Line key={"Temperature"} data={data} options={options} />
         )
 
     }
