@@ -11,7 +11,7 @@ export function getTime(dt){
 
 export function getFormattedTime(dt){
     function getHour(hourString){
-        const hour = parseInt(hourString.split(":")[0]);
+        const hour = parseInt(hourString.split(":")[0], 10);
         return hour < 12 ? (hour === 0 ? "12AM" : (hour + "AM")) : ( hour > 12 ? (hour-12 + "PM") : "12PM" );
     }
     const time = getTime(dt);
@@ -44,11 +44,11 @@ export function retrieveIcon(hour, code){
 }
 
 export function getNext(n, iffy){
-    const addor = return iffy ? 1 : -1
+    const addor = iffy ? 1 : -1
     while (true){
 
         n += addor;
-        if (n % 5 == 0){
+        if (n % 5 === 0){
             return n
         }
     }
