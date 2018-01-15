@@ -73,6 +73,7 @@ class CurrentWeather extends Component {
                     label: "Temperature",
                     data: temps,
                     fill: true,
+                    backgroundColor : "#DBA84C",
                     borderDash: [1,2]
                 }
             ]
@@ -82,7 +83,7 @@ class CurrentWeather extends Component {
             responsive: true,
             title: {
                 display: true,
-                text: 'Temperatures Forecast'
+                text: 'Temperature Forecast'
             },
             tooltips: {
                 mode: 'label'
