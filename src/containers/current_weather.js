@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import Line from '../components/chart';
-import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime, getNext } from "../components/functions";
+import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime, getNext, getHour } from "../components/functions";
 
 class CurrentWeather extends Component {
 
@@ -13,7 +13,7 @@ class CurrentWeather extends Component {
         const dt = listing.dt;
         const time = getTime(dt);
         const day = time[0];
-        const hour = parseInt(time[4].slice(0,2), 10);
+        const hour = getHour(time[4]);
 
         const main = listing.main;
         const currentTemp = main.temp;
