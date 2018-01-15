@@ -23,6 +23,7 @@ export default (props) => {
                         Conditions: {props.description} <br />
                         Humidity: {props.humidity}&#37; <br />
                         Pressure: {props.pressure} hPa <br />
+                        Wind: {props.windSpeed} mph <br />
                     </p>
             </div>
         </div>

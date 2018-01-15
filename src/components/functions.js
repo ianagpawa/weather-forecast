@@ -55,3 +55,7 @@ export function getNext(n, iffy){
         }
     }
 }
+
+export function convertMToMph(n){
+    return parseInt(n * 2.2369, 10);
+}

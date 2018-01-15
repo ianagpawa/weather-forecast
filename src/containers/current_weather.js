@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import Line from '../components/chart';
-import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime, getNext, getHour } from "../components/functions";
+import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime, getNext, getHour, convertMToMph } from "../components/functions";
 
 class CurrentWeather extends Component {
 
@@ -29,14 +29,14 @@ class CurrentWeather extends Component {
         const code = weather.id;
         const icon = "weather-icon wi wi-" + retrieveIcon(hour, code);
 
-        const windSpeed = listing.wind.speed;
-        const windDeg = listing.wind.deg;
+        const windSpeed = convertMToMph(listing.wind.speed);
 
         return (
             <Current key={dt} name={city_name} low={currentTempMin}
                 high={currentTempMax} temp={currentTemp} humidity={currentHum}
                 pressure={currentPres} icon={icon} condition={condition}
-                description={description} day={day} date={date} />
+                description={description} day={day} date={date}
+                windSpeed={windSpeed} />
         );
     }
 
