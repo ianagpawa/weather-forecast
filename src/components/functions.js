@@ -16,9 +16,8 @@ export function getFormattedTime(dt){
     }
     const time = getTime(dt);
     const day = time[0];
-    const date = time[1] + " " + time[2];
     const hour = getHour(time[4]);
-    return [hour, day, date].join(" ");
+    return [hour, day].join(" ");
 }
 
 export function filterFunction(day){
