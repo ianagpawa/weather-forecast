@@ -18,6 +18,7 @@ export default (props) => {
             />
             <div className='right col-md-6'>
                     <p>
+                        {(props.date)} <br />
                         {fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457; <br />
                         {props.description} <br />
                         Humidity: {props.humidity}&#37; <br />

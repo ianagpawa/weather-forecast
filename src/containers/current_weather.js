@@ -14,6 +14,7 @@ class CurrentWeather extends Component {
         const time = getTime(dt);
         const day = time[0];
         const hour = getHour(time[4]);
+        const date = [time[1], time[2] + ",", time[3]].join(" ");
 
         const main = listing.main;
         const currentTemp = main.temp;
@@ -32,7 +33,7 @@ class CurrentWeather extends Component {
             <Current key={dt} name={city_name} low={currentTempMin}
                 high={currentTempMax} temp={currentTemp} humidity={currentHum}
                 pressure={currentPres} icon={icon} condition={condition}
-                description={description} day={day}/>
+                description={description} day={day} date={date} />
         );
     }
 
