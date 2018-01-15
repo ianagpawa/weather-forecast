@@ -8,7 +8,7 @@ export default (props) => {
                 <h3>{props.weekday}</h3>
                 <h4>{fahrenheit(props.temp)}&#8457;</h4>
                 <i className={props.icon}></i>
-                <p>{props.condition}</p>
+                <p className="condition">{props.condition}</p>
             </div>
     );
 }

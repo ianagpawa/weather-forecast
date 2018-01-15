@@ -7,9 +7,10 @@ body {
 
 .weather-icon {
     font-size: 75px;
+    padding-top: 0.5vh;
 
 }
 
-.daily-weather{
-
+.condition {
+    padding-top: 0.75vh;
 }

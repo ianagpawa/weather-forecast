@@ -20,7 +20,7 @@ export default (props) => {
                     <h4>{(props.date)}</h4>
                     <p>
                         {fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457; <br />
-                        {props.description} <br />
+                        Conditions: {props.description} <br />
                         Humidity: {props.humidity}&#37; <br />
                         Pressure: {props.pressure} hPa <br />
                     </p>

@@ -29,6 +29,9 @@ class CurrentWeather extends Component {
         const code = weather.id;
         const icon = "weather-icon wi wi-" + retrieveIcon(hour, code);
 
+        const windSpeed = listing.wind.speed;
+        const windDeg = listing.wind.deg;
+
         return (
             <Current key={dt} name={city_name} low={currentTempMin}
                 high={currentTempMax} temp={currentTemp} humidity={currentHum}
