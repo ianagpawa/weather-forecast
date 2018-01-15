@@ -25,8 +25,7 @@ export function getFormattedTime(dt){
 }
 
 export function filterFunction(day){
-    const time = getHour(getTime(day.dt)[4])
-    // const time = parseInt(timestamp.toDate(day.dt).toString().split(" ")[4].slice(0,2), 10);
+    const time = getHour(getTime(day.dt)[4]);
     return (11 <= time && time <= 13);
 }
 
@@ -41,19 +40,18 @@ export function retrieveIcon(hour, code){
         if ((( 710 < code ) && ( code < 800 )) || ((900 < code) && (code < 1000))){
             return WeatherIcons[code];
         } else {
-            const prefix = isDay(hour) ? "day-" : "night-alt-"
-            return prefix + WeatherIcons[code]
+            const prefix = isDay(hour) ? "day-" : "night-alt-";
+            return prefix + WeatherIcons[code];
         }
     }
 }
 
 export function getNext(n, iffy){
-    const addor = iffy ? 1 : -1
+    const addor = iffy ? 1 : -1;
     while (true){
-
         n += addor;
         if (n % 5 === 0){
-            return n
+            return n;
         }
     }
 }
