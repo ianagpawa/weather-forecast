@@ -17,10 +17,12 @@ export default (props) => {
                 icon={props.icon}
             />
             <div className='right col-md-6'>
-                    <p>{props.description}</p>
-                    <p>{fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457;</p>
-                    <p>Humidity: {props.humidity}&#37;</p>
-                    <p>Pressure: {props.pressure} hPa</p>
+                    <p>
+                        {fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457; <br />
+                        {props.description} <br />
+                        Humidity: {props.humidity}&#37; <br />
+                        Pressure: {props.pressure} hPa <br />
+                    </p>
             </div>
         </div>
     );
