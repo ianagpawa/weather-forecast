@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import Line from '../components/chart';
-import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime } from "../components/functions";
+import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime, getNext } from "../components/functions";
 
 class CurrentWeather extends Component {
 
@@ -62,8 +62,8 @@ class CurrentWeather extends Component {
 
     renderCharts(cityData){
         const temps = cityData.list.map(weather => fahrenheit(weather.main.temp));
-        const minimum = Math.min.apply(null,temps) - 3;
-        const maximum = Math.max.apply(null,temps) + 3;
+        const minimum = getNext( Math.min.apply(null,temps), false);
+        const maximum = getNext( Math.max.apply(null,temps), true);
 
         const labels = cityData.list.map(weather => getFormattedTime(weather.dt));
         const data = {
@@ -73,7 +73,7 @@ class CurrentWeather extends Component {
                     label: "Temperature",
                     data: temps,
                     fill: true,
-                    borderDash: [5,5]
+                    borderDash: [1,2]
                 }
             ]
         }
