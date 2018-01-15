@@ -72,9 +72,7 @@ class CurrentWeather extends Component {
                 {
                     label: "Temperature",
                     data: temps,
-                    fill: true,
-                    backgroundColor : "#DBA84C",
-                    borderDash: [1,2]
+                    fill: true
                 }
             ]
         }
