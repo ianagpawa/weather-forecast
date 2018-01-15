@@ -62,8 +62,8 @@ class CurrentWeather extends Component {
 
     renderCharts(cityData){
         const temps = cityData.list.map(weather => fahrenheit(weather.main.temp));
-        const minimum = Math.min(temps) - 5;
-        const maximum = Math.max(temps) + 5;
+        const minimum = Math.min.apply(null,temps) - 3;
+        const maximum = Math.max.apply(null,temps) + 3;
 
         const labels = cityData.list.map(weather => getFormattedTime(weather.dt));
         const data = {
@@ -104,8 +104,13 @@ class CurrentWeather extends Component {
                         scaleLabel: {
                             display: true,
                             labelString: 'Temp. (°F)'
+                        },
+                        ticks: {
+                            min: minimum,
+                            max: maximum
                         }
                     }
+
                 ]
             }
         }
