@@ -62,8 +62,8 @@ class CurrentWeather extends Component {
 
     renderCharts(cityData){
         const temps = cityData.list.map(weather => fahrenheit(weather.main.temp));
-        const minimum = Math.min(temps);
-        const maximum = Math.max(temps);
+        const minimum = Math.min(temps) - 5;
+        const maximum = Math.max(temps) + 5;
 
         const labels = cityData.list.map(weather => getFormattedTime(weather.dt));
         const data = {
@@ -82,7 +82,7 @@ class CurrentWeather extends Component {
             responsive: true,
             title: {
                 display: true,
-                text: 'Temperatures for the next 5 days'
+                text: 'Temperatures Forecast'
             },
             tooltips: {
                 mode: 'label'
@@ -95,7 +95,7 @@ class CurrentWeather extends Component {
                     {
                         scaleLabel: {
                             display: true,
-                            labelString: '3 Hour Intervals for the next 5 days'
+                            labelString: 'Hour and Day'
                         }
                     }
                 ],
