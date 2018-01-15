@@ -117,16 +117,21 @@ class CurrentWeather extends Component {
         return (
             <Line key={"Temperature"} data={data} options={options} />
         )
-
     }
 
 
     render () {
         return (
             <div>
-                <div className='col-md-12'>{this.props.weather.map(this.renderCurrentWeather)}</div>
-                <div className="col-xs-10 col-xs-offset-2">{this.props.weather.map(this.renderWeatherWeek)}</div>
-                <div className='col-md-12'>{this.props.weather.map(this.renderCharts)}</div>
+                <div className='col-md-12'>
+                    {this.props.weather.map(this.renderCurrentWeather)}
+                </div>
+                <div className="col-xs-10 col-xs-offset-2">
+                    {this.props.weather.map(this.renderWeatherWeek)}
+                </div>
+                <div className='col-md-12'>
+                    {this.props.weather.map(this.renderCharts)}
+                </div>
             </div>
         );
     }
