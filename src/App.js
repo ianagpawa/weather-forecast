@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
 import SearchBar from "./containers/search_bar";
-import WeatherList from "./containers/weather_list";
 import CurrentWeather from "./containers/current_weather";
 
 export default class App extends Component {
@@ -11,7 +10,6 @@ export default class App extends Component {
         <div>
             <SearchBar />
             <CurrentWeather />
-            <WeatherList />
         </div>
     );
   }
