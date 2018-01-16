@@ -21,9 +21,9 @@ export default (props) => {
                     <p>
                         {fahrenheit(props.low)}&#8457; - {fahrenheit(props.high)}&#8457; <br />
                         Conditions: {props.description} <br />
+                        Wind: {props.windSpeed} mph <br />
                         Humidity: {props.humidity}&#37; <br />
                         Pressure: {props.pressure} hPa <br />
-                        Wind: {props.windSpeed} mph <br />
                     </p>
             </div>
         </div>
