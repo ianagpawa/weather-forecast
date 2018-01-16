@@ -49,7 +49,7 @@ class CurrentWeather extends Component {
             const weekday = time[0];
             const code = day.weather[0].id;
             const icon = "weather-icon wi wi-" + retrieveIcon(12, code);
-            const size = "daily-weather col-xs-2";
+            const size = "daily-weather col-md-2";
             return (
                 <DailyWeather
                     key={day.dt}
@@ -130,7 +130,7 @@ class CurrentWeather extends Component {
                 <div className='col-md-12'>
                     {this.props.weather.map(this.renderCurrentWeather)}
                 </div>
-                <div className="col-xs-10 col-xs-offset-2">
+                <div className="col-md-10 col-md-offset-2">
                     {this.props.weather.map(this.renderWeatherWeek)}
                 </div>
                 <div className='col-md-12'>
