@@ -82,8 +82,8 @@ class CurrentWeather extends Component {
         }
 
         const options = {
-            // maintainAspectRatio: true,
-            // responsive: true,
+            maintainAspectRatio: false,
+            responsive: true,
             title: {
                 display: true,
                 text: 'Temperature Forecast'
