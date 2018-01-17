@@ -53,7 +53,7 @@ class CurrentWeather extends Component {
             return (
                 <DailyWeather
                     key={day.dt}
-                    size = {size}
+                    size={size}
                     weekday={weekday}
                     temp={day.main.temp}
                     condition={day.weather[0].main}
@@ -82,7 +82,8 @@ class CurrentWeather extends Component {
         }
 
         const options = {
-            responsive: true,
+            // maintainAspectRatio: true,
+            // responsive: true,
             title: {
                 display: true,
                 text: 'Temperature Forecast'
@@ -119,7 +120,7 @@ class CurrentWeather extends Component {
         }
 
         return (
-            <Line key={"Temperature"} data={data} options={options} />
+            <Line key={"Temperature"} data={data} options={options} width={800} height={600} />
         )
     }
 
