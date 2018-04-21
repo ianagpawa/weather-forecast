@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Current from "../components/current_weather";
 import DailyWeather from "../components/weather";
 import Line from '../components/chart';
+import Error from '../components/error';
 import { filterFunction, retrieveIcon, fahrenheit, getTime, getFormattedTime, getNext, getHour, convertMToMph } from "../components/functions";
 
 class CurrentWeather extends Component {
